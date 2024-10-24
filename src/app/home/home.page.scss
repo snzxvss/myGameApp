@@ -12,8 +12,9 @@ html, body, ion-app, ion-content {
   flex-direction: column;
   justify-content: center; /* Centra verticalmente */
   align-items: center; /* Centra horizontalmente */
-  background: linear-gradient(to bottom, #8e44ad, #c0392b);
+  background: #010c42;
   border: none; /* Quita el borde */
+  padding-bottom: 60px; /* Espacio adicional en la parte inferior */
 }
 
 .header {
@@ -24,7 +25,7 @@ html, body, ion-app, ion-content {
 
 .logo-container {
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0; /* Reduce el margen superior e inferior */
 }
 
 .logo {
@@ -99,6 +100,8 @@ ion-avatar {
   height: 50px;
   font-size: 18px;
   --border-radius: 25px;
+  width: 100%; /* Asegura que el botón ocupe todo el ancho */
+  max-width: 300px; /* Limita el ancho máximo del botón */
 }
 
 /* Sobrescribir estilos de inner-scroll y scroll-y */
@@ -110,12 +113,12 @@ ion-avatar {
 
 /* Sobrescribir estilos de #background-content */
 #background-content {
-  background: none linear-gradient(to bottom, #8e44ad, #c0392b); /* Elimina el fondo negro */
+  background: none #010c42; /* Elimina el fondo negro */
   position: static !important; /* Ajusta la posición si es necesario */
 }
 
 ion-content {
-  --background: linear-gradient(to bottom, #8e44ad, #c0392b);
+  --background: #010c42;
 }
 
 :root {
