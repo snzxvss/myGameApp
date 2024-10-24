@@ -36,7 +36,6 @@ export class PlayPage implements OnInit {
   seleccionarPreguntasAleatorias(preguntas: any[], cantidad: number): any[] {
     const preguntasAleatorias = [];
     const indicesSeleccionados = new Set<number>();
-
     while (preguntasAleatorias.length < cantidad) {
       const indice = Math.floor(Math.random() * preguntas.length);
       if (!indicesSeleccionados.has(indice)) {
@@ -44,7 +43,6 @@ export class PlayPage implements OnInit {
         preguntasAleatorias.push(preguntas[indice]);
       }
     }
-
     return preguntasAleatorias;
   }
 

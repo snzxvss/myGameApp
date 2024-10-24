@@ -2,13 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { WebSocketService } from '../services/websocket.service';
 
+interface Player {
+  avatarUrl: string;
+  nickname: string;
+  score: number;
+  isCreator?: boolean;
+}
+
 @Component({
   selector: 'app-create-room',
   templateUrl: './create-room.page.html',
   styleUrls: ['./create-room.page.scss'],
 })
 export class CreateRoomPage implements OnInit {
-  players: { avatarUrl: string, nickname: string, score: number, isCreator?: boolean }[] = [];
+  players: Player[] = [];
   emptySlots: number[] = [];
   roomId: string | null = null;
   isCreator: boolean = false;
@@ -51,7 +58,7 @@ export class CreateRoomPage implements OnInit {
       console.error('Solo el creador de la sala puede iniciar el juego');
       return;
     }
-
+  
     // Reiniciar el estado del juego
     localStorage.setItem('gameState', JSON.stringify({
       preguntas: [],
@@ -61,13 +68,19 @@ export class CreateRoomPage implements OnInit {
       minutes: 5,
       seconds: 0
     }));
-
+  
+    // Reiniciar los puntajes de los jugadores
+    this.players = this.players.map(player => ({ ...player, score: 0 }));
+    localStorage.setItem(`players_${this.roomId}`, JSON.stringify(this.players));
+  
     // Enviar mensaje al servidor WebSocket para iniciar el juego
     this.wsService.sendMessage({
       type: 'start',
       roomId: this.roomId,
     });
+  
 
+    
     console.log('Iniciar partida');
     this.router.navigate(['/play']);
   }
