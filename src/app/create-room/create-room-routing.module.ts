@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: CreateRoomPage
+  },
+  {
+    path: ':roomId',
+    component: CreateRoomPage
   }
 ];
 

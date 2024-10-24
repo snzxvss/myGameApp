@@ -1,0 +1,85 @@
+html, body, ion-app, ion-content {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.app-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  background: #010c42;
+  border: none; /* Quita el borde */
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+}
+.quiz-container {
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  background: #1a1a2e;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+.quiz-container div {
+  margin-bottom: 15px;
+}
+.question {
+  font-size: 18px;
+  color: white;
+}
+ion-item {
+  --background: #2e2e3a;
+  --color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+ion-label {
+  font-size: 16px;
+  color: white;
+}
+ion-radio {
+  --color: white;
+}
+ion-button {
+  --background: #2ecc71;
+  --color: white;
+  width: 100%;
+  margin-top: 20px;
+}
+.result-container {
+  text-align: center;
+  margin-top: 20px;
+}
+.score {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+.message {
+  font-size: 18px;
+  margin-top: 10px;
+}
+.good-score {
+  animation: goodScoreAnimation 1s ease-in-out;
+}
+.bad-score {
+  animation: badScoreAnimation 1s ease-in-out;
+}
+@keyframes goodScoreAnimation {
+  0% { background-color: #1a1a2e; }
+  100% { background-color: #2ecc71; }
+}
+@keyframes badScoreAnimation {
+  0% { background-color: #1a1a2e; }
+  100% { background-color: #e74c3c; }
+}

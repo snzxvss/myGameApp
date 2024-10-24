@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: JoinRoomPage
+  },
+  {
+    path: ':roomId',
+    component: JoinRoomPage
   }
 ];
 

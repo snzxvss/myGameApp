@@ -1,0 +1,49 @@
+html, body, ion-app, ion-content {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #010c42;
+  border: none;
+}
+
+.logo-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.avatar-selection {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.avatar-selection img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.avatar-selection img.selected {
+  border-color: #3498db;
+}
+
+ion-content {
+  --background: #010c42;
+}

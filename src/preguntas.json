@@ -1,0 +1,233 @@
+{
+  "questions": [
+    {
+      "question": "¿Qué es la oftalmoscopia?",
+      "options": {
+        "A": "Un examen de la parte anterior del ojo",
+        "B": "Un examen del fondo del ojo",
+        "C": "Una prueba de visión de cerca",
+        "D": "Ninguna de las anteriores"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "¿Por qué es importante registrar la historia clínica?",
+      "options": {
+        "A": "Para asegurar el tratamiento adecuado",
+        "B": "Para multas administrativas",
+        "C": "Para estudios",
+        "D": "Para consultas futuras"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Qué movimiento ocular está asociado con la fijación?",
+      "options": {
+        "A": "Movimiento sacádico",
+        "B": "Movimiento de convergencia",
+        "C": "Movimiento torsional",
+        "D": "Ninguno de estos"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿La historia clínica debe ser?",
+      "options": {
+        "A": "Pública y accesible",
+        "B": "Privada y reservada",
+        "C": "Opcional",
+        "D": "Sencillo"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿La fijación visual se clasifica en?",
+      "options": {
+        "A": "Central y central",
+        "B": "Central y excéntrica",
+        "C": "Excéntrica y periférica",
+        "D": "Directa e indirecta"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿La distancia pupilar se mide en?",
+      "options": {
+        "A": "Centímetros",
+        "B": "Milímetros",
+        "C": "Pulgadas",
+        "D": "Metros"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "¿La oftalmoscopia se utiliza para evaluar?",
+      "options": {
+        "A": "Las glándulas lagrimales",
+        "B": "El fondo del ojo",
+        "C": "La agudeza visual",
+        "D": "La curvatura corneal"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Cuál de las siguientes afirmaciones sobre el astigmatismo es correcta?",
+      "options": {
+        "A": "Se debe a una curvatura irregular de la córnea",
+        "B": "Solo afecta la visión de cerca",
+        "C": "Es una condición permanente",
+        "D": "No se puede corregir"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "¿Qué problema de refracción se caracteriza por la dificultad para ver objetos lejanos?",
+      "options": {
+        "A": "Hipermetropía",
+        "B": "Miopía",
+        "C": "Astigmatismo",
+        "D": "Presbicia"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Qué estructura del ojo es responsable de la mayor parte de la refracción?",
+      "options": {
+        "A": "Cristalino",
+        "B": "Córnea",
+        "C": "Retina",
+        "D": "Humor vítreo"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Cómo se llama el proceso por el cual el ojo ajusta el enfoque para ver objetos a diferentes distancias?",
+      "options": {
+        "A": "Reflexión",
+        "B": "Acomodación",
+        "C": "Refracción",
+        "D": "Adaptación"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Qué es la distancia pupilar?",
+      "options": {
+        "A": "La distancia entre las cejas",
+        "B": "La distancia entre las pupilas de los ojos",
+        "C": "La distancia entre el iris y la córnea",
+        "D": "La distancia desde el ojo hasta la nariz"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Por qué es importante medir la distancia (naso pupilar)?",
+      "options": {
+        "A": "Para determinar el color de los ojos",
+        "B": "Datos más precisos",
+        "C": "Para medir la presión ocular"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Cómo puede afectar una medición incorrecta de la distancia pupilar?",
+      "options": {
+        "A": "Mejora la visión",
+        "B": "Puede causar molestias o visión borrosa",
+        "C": "No tiene impacto",
+        "D": "Aumenta la agudeza visual"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Qué puede causar variaciones en la distancia pupilar entre diferentes personas?",
+      "options": {
+        "A": "La forma del rostro",
+        "B": "La edad",
+        "C": "La genética",
+        "D": "Todas las anteriores"
+      },
+      "answer": "D"
+    },
+    {
+      "question": "¿En qué situaciones se debe medir la distancia pupilar?",
+      "options": {
+        "A": "Al prescribir lentes de lectura",
+        "B": "Al realizar pruebas de agudeza visual",
+        "C": "Al comprar gafas nuevas",
+        "D": "Todas las anteriores"
+      },
+      "answer": "D"
+    },
+    {
+      "question": "¿De cuánto es el valor DPT del astigmatismo Ac?",
+      "options": {
+        "A": "0.75 dpt",
+        "B": "0.50 dpt",
+        "C": "1.00 dpt",
+        "D": "0.25 dpt"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "¿Qué condición ocular se puede diagnosticar a través de la queratometría?",
+      "options": {
+        "A": "Miopía",
+        "B": "Hipermetropía",
+        "C": "Astigmatismo",
+        "D": "Todas las anteriores"
+      },
+      "answer": "D"
+    },
+    {
+      "question": "¿Qué información proporciona la queratometría sobre la córnea?",
+      "options": {
+        "A": "Solo la forma",
+        "B": "La curvatura y el eje",
+        "C": "La transparencia",
+        "D": "El grosor"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Qué es astigmatismo?",
+      "options": {
+        "A": "Ver mal",
+        "B": "Defecto refractivo, por la irregularidad de la córnea",
+        "C": "Ver bien en VL y VP",
+        "D": "Defecto de convergencia"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Por qué es importante medir la distancia pupilar?",
+      "options": {
+        "A": "Para determinar el color de los ojos",
+        "B": "Para ajustar correctamente los lentes ópticos",
+        "C": "Para medir la presión ocular",
+        "D": "Para realizar exámenes de visión"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Cuál es el propósito principal de la historia clínica en optometría?",
+      "options": {
+        "A": "Evaluar la salud general del paciente",
+        "B": "Obtener información sobre la salud visual y ocular del paciente",
+        "C": "Realizar un diagnóstico definitivo",
+        "D": "Prescribir medicamentos"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "¿Qué problema de refracción se caracteriza por la dificultad para ver objetos cercanos?",
+      "options": {
+        "A": "Hipermetropía",
+        "B": "Miopía",
+        "C": "Astigmatismo",
+        "D": "Presbicia"
+      },
+      "answer": "A"
+    }
+  ]
+}

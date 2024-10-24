@@ -4,21 +4,24 @@
     <div class="logo-container">
       <img src="assets/logo.jpg" alt="Gorric PHONE" class="logo">
     </div>
-
+    <!-- Room ID -->
+    <div class="room-id">
+      <ion-label>Room ID: {{ roomId }}</ion-label>
+    </div>
     <!-- Players Container -->
     <div class="players-container">
       <div *ngFor="let player of players" class="player-card">
         <img [src]="player.avatarUrl" alt="Avatar" class="player-avatar">
         <div class="player-nickname">{{ player.nickname }}</div>
+        <div class="player-score">Score: {{ player.score }}</div>
       </div>
       <div *ngFor="let i of emptySlots" class="player-card empty">
         <ion-icon name="add-circle-outline" class="add-icon"></ion-icon>
       </div>
     </div>
-
     <!-- Buttons -->
     <div class="buttons-container">
-      <ion-button expand="block" class="start-game-btn" (click)="startGame()">
+      <ion-button expand="block" class="start-game-btn" (click)="startGame()" [disabled]="!isCreator">
         INICIAR PARTIDA
       </ion-button>
       <ion-button expand="block" class="invite-btn" (click)="invitePlayer()">
