@@ -10,6 +10,8 @@ export class HomePage implements OnInit {
   avatarUrl: string = 'assets/avatar1.jpg';
   nickname: string = '';
   isInputFocused: boolean = false;
+  showInitialButtons: boolean = true;
+  showGameContent: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -40,11 +42,24 @@ export class HomePage implements OnInit {
     this.router.navigate([`/create-room/${roomId}`]);
   }
 
+  goToCasosClinicos() {
+    this.router.navigate(['/casos-clinicos']);
+  }
+
   onFocus() {
     this.isInputFocused = true;
   }
 
   onBlur() {
     this.isInputFocused = false;
+  }
+
+  showGame() {
+    this.showInitialButtons = false;
+    this.showGameContent = true;
+  }
+
+  showCasosClinicos() {
+    this.router.navigate(['/casos-clinicos']);
   }
 }

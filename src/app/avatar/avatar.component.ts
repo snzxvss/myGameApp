@@ -8,7 +8,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class AvatarComponent {
   @Input() avatarUrl: string = 'assets/avatar1.jpg';
   @Output() avatarChange = new EventEmitter<string>();
-
   private avatarIndex: number = 1;
   private readonly totalAvatars: number = 7;
 

@@ -25,23 +25,42 @@ html, body, ion-app, ion-content {
   max-width: 150px;
 }
 
-.avatar-selection {
+.custom-segment {
+  --background: rgba(255, 255, 255, 0.5); /* Menos transparencia */
+  border-radius: 20px;
+  margin-bottom: 10px; /* Reduce el margen inferior */
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  align-items: center;
+  margin-top: 10px; /* Reduce el margen superior */
+  width: 80%; /* Ajusta el ancho del segmento */
+  max-width: 300px; /* Ancho máximo del segmento */
 }
 
-.avatar-selection img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin: 0 10px;
-  cursor: pointer;
-  border: 2px solid transparent;
+.small-spacer {
+  height: 10px;
 }
 
-.avatar-selection img.selected {
-  border-color: #3498db;
+.avatar-container {
+  margin-bottom: 20px;
+}
+
+.nickname-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.custom-input {
+  width: 100%;
+}
+
+.button-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.join-room-btn {
+  width: 100%;
 }
 
 ion-content {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { WebSocketService } from '../services/websocket.service';
+import { Clipboard } from '@angular/cdk/clipboard';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Player {
   avatarUrl: string;
@@ -23,7 +25,9 @@ export class CreateRoomPage implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private wsService: WebSocketService
+    private wsService: WebSocketService,
+    private clipboard: Clipboard,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -58,7 +62,7 @@ export class CreateRoomPage implements OnInit {
       console.error('Solo el creador de la sala puede iniciar el juego');
       return;
     }
-  
+
     // Reiniciar el estado del juego
     localStorage.setItem('gameState', JSON.stringify({
       preguntas: [],
@@ -68,19 +72,17 @@ export class CreateRoomPage implements OnInit {
       minutes: 5,
       seconds: 0
     }));
-  
+
     // Reiniciar los puntajes de los jugadores
     this.players = this.players.map(player => ({ ...player, score: 0 }));
     localStorage.setItem(`players_${this.roomId}`, JSON.stringify(this.players));
-  
+
     // Enviar mensaje al servidor WebSocket para iniciar el juego
     this.wsService.sendMessage({
       type: 'start',
       roomId: this.roomId,
     });
-  
 
-    
     console.log('Iniciar partida');
     this.router.navigate(['/play']);
   }
@@ -93,6 +95,24 @@ export class CreateRoomPage implements OnInit {
 
     const baseUrl = window.location.origin; // Obtener la URL base (e.g., http://localhost:4200)
     const inviteUrl = `${baseUrl}/join-room/${this.roomId}`;
+
+    if (navigator.share) {
+      navigator.share({
+        title: 'Invitación a la sala',
+        text: 'Únete a mi sala en Gorric PHONE',
+        url: inviteUrl,
+      }).then(() => {
+        console.log('Compartido exitosamente');
+      }).catch((error) => {
+        console.error('Error al compartir', error);
+      });
+    } else {
+      // Copiar el enlace al portapapeles
+      this.clipboard.copy(inviteUrl);
+
+      // Mostrar mensaje de confirmación
+      alert('URL de invitación copiada al portapapeles');
+    }
 
     console.log('Invitar jugador');
     console.log(`URL de invitación: ${inviteUrl}`);

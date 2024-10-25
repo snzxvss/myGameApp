@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'join-room',
     loadChildren: () => import('./join-room/join-room.module').then( m => m.JoinRoomPageModule)
   },
+  {
+    path: 'casos-clinicos',
+    loadChildren: () => import('./casos-clinicos/casos-clinicos.component').then(m => m.CasosClinicosComponent)
+  },
 ];
 
 @NgModule({

@@ -32,6 +32,14 @@ html, body, ion-app, ion-content {
   max-width: 150px;
 }
 
+.logo-initial {
+  filter: brightness(1); /* Brillo normal */
+}
+
+.logo-game {
+  filter: brightness(0.8); /* Brillo reducido */
+}
+
 .spacer {
   flex-grow: 0.3; /* Ocupa menos espacio disponible */
 }
@@ -104,6 +112,17 @@ ion-avatar {
   max-width: 300px; /* Limita el ancho máximo del botón */
 }
 
+.casos-clinicos-btn {
+  --background: #3498db;
+  --color: white;
+  margin-top: 20px;
+  height: 50px;
+  font-size: 18px;
+  --border-radius: 25px;
+  width: 100%; /* Asegura que el botón ocupe todo el ancho */
+  max-width: 300px; /* Limita el ancho máximo del botón */
+}
+
 /* Sobrescribir estilos de inner-scroll y scroll-y */
 .inner-scroll,
 .scroll-y {
@@ -137,4 +156,11 @@ ion-content {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.initial-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Separación entre los botones */
 }

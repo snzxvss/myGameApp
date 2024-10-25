@@ -18,6 +18,7 @@ export class JoinRoomPage implements OnInit {
   roomId: string | null = null;
   nickname: string = '';
   avatarUrl: string = 'assets/avatar1.jpg';
+  isInputFocused: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -76,6 +77,14 @@ export class JoinRoomPage implements OnInit {
 
   onAvatarChange(newAvatarUrl: string) {
     this.avatarUrl = newAvatarUrl;
+  }
+
+  onFocus() {
+    this.isInputFocused = true;
+  }
+
+  onBlur() {
+    this.isInputFocused = false;
   }
 
   requestPlayers() {

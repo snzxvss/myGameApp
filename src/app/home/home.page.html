@@ -1,31 +1,37 @@
 <ion-content [fullscreen]="true" class="ion-padding">
-    <div class="app-container" [class.input-focused]="isInputFocused">
-      <!-- Logo -->
-      <div class="logo-container">
-        <img src="assets/logo.jpg" alt="Gorric PHONE" class="logo">
-      </div>
-  
-      <!-- Segment con solo texto -->
-      <ion-segment value="anonymous" class="custom-segment">
-        <div class="custom-segment-text">
-          Ingresa un Nickname
-        </div>
-      </ion-segment>
-  
-      <!-- Spacer pequeño -->
-      <div class="small-spacer"></div>
-  
-      <!-- Avatar and Nickname -->
-      <app-avatar [avatarUrl]="avatarUrl" (avatarChange)="onAvatarChange($event)"></app-avatar>
-  
-      <ion-item class="custom-input">
-        <ion-input id="nickname-input" placeholder="MiNickName12345" [(ngModel)]="nickname" (focus)="onFocus()" (blur)="onBlur()"></ion-input>
-      </ion-item>
-  
-      <!-- Create Room Button -->
-      <ion-button id="create-room-btn" expand="block" class="create-room-btn" (click)="createRoom()">
-        <ion-icon name="play-outline" slot="start"></ion-icon>
-        CREAR SALA
-      </ion-button>
+  <div class="app-container" [class.input-focused]="isInputFocused">
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="assets/logo.jpg" alt="Gorric PHONE" class="logo">
     </div>
-  </ion-content>
+
+    <!-- Segment con solo texto -->
+    <ion-segment value="anonymous" class="custom-segment">
+      <div class="custom-segment-text">
+        Ingresa un Nickname
+      </div>
+    </ion-segment>
+
+    <!-- Spacer pequeño -->
+    <div class="small-spacer"></div>
+
+    <!-- Avatar and Nickname -->
+    <app-avatar [avatarUrl]="avatarUrl" (avatarChange)="onAvatarChange($event)"></app-avatar>
+
+    <ion-item class="custom-input">
+      <ion-input id="nickname-input" placeholder="MiNickName12345" [(ngModel)]="nickname" (focus)="onFocus()" (blur)="onBlur()"></ion-input>
+    </ion-item>
+
+    <!-- Create Room Button -->
+    <ion-button id="create-room-btn" expand="block" class="create-room-btn" (click)="createRoom()">
+      <ion-icon name="play-outline" slot="start"></ion-icon>
+      CREAR SALA
+    </ion-button>
+
+    <!-- Casos Clinicos Button -->
+    <ion-button id="casos-clinicos-btn" expand="block" class="casos-clinicos-btn" (click)="goToCasosClinicos()">
+      <ion-icon name="medkit-outline" slot="start"></ion-icon>
+      CASOS CLÍNICOS
+    </ion-button>
+  </div>
+</ion-content>

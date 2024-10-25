@@ -20,12 +20,29 @@
           {{ currentQuestionIndex === preguntas.length - 1 ? 'Finalizar' : 'Siguiente' }}
         </ion-button>
       </div>
-      <div *ngIf="currentQuestionIndex >= preguntas.length">
+      <div *ngIf="currentQuestionIndex >= preguntas.length && !showResults">
         <div class="result-container" [ngClass]="{'good-score': score >= 7, 'bad-score': score < 7}">
           <div class="score">Tu puntuación: {{ score }}/{{ preguntas.length }}</div>
           <div class="message" *ngIf="score >= 7">¡Buen trabajo!</div>
           <div class="message" *ngIf="score < 7">¡Sigue practicando!</div>
         </div>
+        <ion-button (click)="verPuntuacion()">Ver puntuación</ion-button>
+        <ion-button (click)="volverSala()">Volver a la sala</ion-button>
+        <ion-button (click)="salirHome()">Salir al home</ion-button>
+      </div>
+      <div *ngIf="showResults">
+        <div class="result-container">
+          <div class="question">{{ resultIndex + 1 }}. {{ preguntas[resultIndex].question }}</div>
+          <div class="answer">A. {{ preguntas[resultIndex].options.A }}</div>
+          <div class="answer">B. {{ preguntas[resultIndex].options.B }}</div>
+          <div class="answer">C. {{ preguntas[resultIndex].options.C }}</div>
+          <div class="answer">D. {{ preguntas[resultIndex].options.D }}</div>
+          <div class="result">
+            Correcta: {{ preguntas[resultIndex].answer }} | Elegida: {{ respuestas[resultIndex] }}
+          </div>
+        </div>
+        <ion-button (click)="prevResult()" [disabled]="resultIndex === 0">Anterior</ion-button>
+        <ion-button (click)="nextResult()" [disabled]="resultIndex === preguntas.length - 1">Siguiente</ion-button>
         <ion-button (click)="volverSala()">Volver a la sala</ion-button>
         <ion-button (click)="salirHome()">Salir al home</ion-button>
       </div>

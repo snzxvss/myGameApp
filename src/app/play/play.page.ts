@@ -15,6 +15,8 @@ export class PlayPage implements OnInit {
   minutes: number = 5;
   seconds: number = 0;
   score: number = 0;
+  showResults: boolean = false;
+  resultIndex: number = 0;
 
   constructor(private router: Router) {}
 
@@ -94,6 +96,23 @@ export class PlayPage implements OnInit {
       minutes: this.minutes,
       seconds: this.seconds
     }));
+  }
+
+  verPuntuacion() {
+    this.showResults = true;
+    this.resultIndex = 0;
+  }
+
+  nextResult() {
+    if (this.resultIndex < this.preguntas.length - 1) {
+      this.resultIndex++;
+    }
+  }
+
+  prevResult() {
+    if (this.resultIndex > 0) {
+      this.resultIndex--;
+    }
   }
 
   volverSala() {
