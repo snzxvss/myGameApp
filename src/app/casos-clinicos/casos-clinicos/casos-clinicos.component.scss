@@ -1,235 +1,257 @@
 html, body, ion-app, ion-content {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .app-container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra verticalmente */
-    align-items: center; /* Centra horizontalmente */
-    background: #010c42;
-    border: none; /* Quita el borde */
-    padding-bottom: 60px; /* Espacio adicional en la parte inferior */
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  
-  .logo-container {
-    text-align: center;
-    margin: 10px 0; /* Reduce el margen superior e inferior */
-  }
-  
-  .logo {
-    max-width: 150px;
-  }
-  
-  .logo-initial {
-    filter: brightness(1); /* Brillo normal */
-  }
-  
-  .logo-game {
-    filter: brightness(0.8); /* Brillo reducido */
-  }
-  
-  .spacer {
-    flex-grow: 0.3; /* Ocupa menos espacio disponible */
-  }
-  
-  .small-spacer {
-    height: 20px; /* Ajusta el tamaño del espaciador pequeño */
-  }
-  
-  .custom-segment {
-    --background: rgba(255, 255, 255, 0.5); /* Menos transparencia */
-    border-radius: 20px;
-    margin-bottom: 10px; /* Reduce el margen inferior */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px; /* Reduce el margen superior */
-    width: 80%; /* Ajusta el ancho del segmento */
-    max-width: 300px; /* Ancho máximo del segmento */
-  }
-  
-  .custom-segment-text {
-    color: white;
-    font-size: 18px;
-  }
-  
-  ion-segment-button {
-    --color: white;
-    --color-checked: #8e44ad;
-  }
-  
-  .avatar-container {
-    position: relative;
-    width: 100px;
-    margin: 10px auto; /* Reduce el margen superior e inferior */
-  }
-  
-  ion-avatar {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-  }
-  
-  .avatar-help {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 24px;
-    color: white;
-    background: #8e44ad;
-    border-radius: 50%;
-  }
-  
-  .custom-input {
-    --background: rgba(255, 255, 255, 0.2);
-    --color: white;
-    --placeholder-color: rgba(255, 255, 255, 0.7);
-    border-radius: 20px;
-    margin-top: 10px; /* Reduce el margen superior */
-  }
-  
-  .create-room-btn {
-    --background: #2ecc71;
-    --color: white;
-    margin-top: auto;
-    margin-bottom: 20px;
-    height: 50px;
-    font-size: 18px;
-    --border-radius: 25px;
-    width: 100%; /* Asegura que el botón ocupe todo el ancho */
-    max-width: 300px; /* Limita el ancho máximo del botón */
-  }
-  
-  .casos-clinicos-btn {
-    --background: #3498db;
-    --color: white;
-    margin-top: 20px;
-    height: 50px;
-    font-size: 18px;
-    --border-radius: 25px;
-    width: 100%; /* Asegura que el botón ocupe todo el ancho */
-    max-width: 300px; /* Limita el ancho máximo del botón */
-  }
-  
-  /* Sobrescribir estilos de inner-scroll y scroll-y */
-  .inner-scroll,
-  .scroll-y {
-    background: none !important; /* Elimina el fondo negro */
-    box-shadow: none !important; /* Elimina cualquier sombra */
-  }
-  
-  /* Sobrescribir estilos de #background-content */
-  #background-content {
-    background: none #010c42; /* Elimina el fondo negro */
-    position: static !important; /* Ajusta la posición si es necesario */
-  }
-  
-  ion-content {
-    --background: #010c42;
-  }
-  
-  :root {
-    --ion-background-color: transparent;
-    --ion-background-color-rgb: 255, 255, 255;
-  }
-  
-  .avatar-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .change-avatar-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  
-  .initial-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; /* Separación entre los botones */
-  }
-  
-  .cases-container {
-    width: 90%;
-    max-width: 600px;
-    margin-top: 20px;
-  }
-  
-  ion-card {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  ion-card-header {
-    background: #2e2e3a;
-    color: white;
-  }
-  
-  ion-card-title {
-    font-size: 18px;
-  }
-  
-  ion-card-content {
-    background: #1a1a2e;
-    color: white;
-  }
-  
-  .comments {
-    margin-top: 10px;
-    padding: 10px;
-    background: #2e2e3a;
-    border-radius: 10px;
-  }
-  
-  .comments h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #8e44ad;
-  }
-  
-  .comments p {
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #ecf0f1;
-  }
-  
-  .description {
-    padding: 10px;
-    background: #2e2e3a;
-    border-radius: 10px;
-    color: #ecf0f1;
-    margin-top: 10px;
-  }
-  
-  ion-item {
-    --background: #2e2e3a;
-    --color: white;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-  
-  ion-input {
-    --placeholder-color: rgba(255, 255, 255, 0.7);
-  }
-  
-  ion-button {
-    --background: #2ecc71;
-    --color: white;
-    margin-left: 10px;
-  }
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  background: #010c42;
+  border: none; /* Quita el borde */
+  padding-bottom: 60px; /* Espacio adicional en la parte inferior */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.logo-container {
+  text-align: center;
+  margin: 10px 0; /* Reduce el margen superior e inferior */
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.logo-initial {
+  filter: brightness(1); /* Brillo normal */
+}
+
+.logo-game {
+  filter: brightness(0.8); /* Brillo reducido */
+}
+
+.spacer {
+  flex-grow: 0.3; /* Ocupa menos espacio disponible */
+}
+
+.small-spacer {
+  height: 20px; /* Ajusta el tamaño del espaciador pequeño */
+}
+
+.custom-segment {
+  --background: rgba(255, 255, 255, 0.5); /* Menos transparencia */
+  border-radius: 20px;
+  margin-bottom: 10px; /* Reduce el margen inferior */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Reduce el margen superior */
+  width: 80%; /* Ajusta el ancho del segmento */
+  max-width: 300px; /* Ancho máximo del segmento */
+}
+
+.custom-segment-text {
+  color: white;
+  font-size: 18px;
+}
+
+ion-segment-button {
+  --color: white;
+  --color-checked: #8e44ad;
+}
+
+.avatar-container {
+  position: relative;
+  width: 100px;
+  margin: 10px auto; /* Reduce el margen superior e inferior */
+}
+
+ion-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.avatar-help {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 24px;
+  color: white;
+  background: #8e44ad;
+  border-radius: 50%;
+}
+
+.custom-input {
+  --background: rgba(255, 255, 255, 0.2);
+  --color: white;
+  --placeholder-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  margin-top: 10px; /* Reduce el margen superior */
+}
+
+.create-room-btn {
+  --background: #2ecc71;
+  --color: white;
+  margin-top: auto;
+  margin-bottom: 20px;
+  height: 50px;
+  font-size: 18px;
+  --border-radius: 25px;
+  width: 100%; /* Asegura que el botón ocupe todo el ancho */
+  max-width: 300px; /* Limita el ancho máximo del botón */
+}
+
+.casos-clinicos-btn {
+  --background: #3498db;
+  --color: white;
+  margin-top: 20px;
+  height: 50px;
+  font-size: 18px;
+  --border-radius: 25px;
+  width: 100%; /* Asegura que el botón ocupe todo el ancho */
+  max-width: 300px; /* Limita el ancho máximo del botón */
+}
+
+/* Sobrescribir estilos de inner-scroll y scroll-y */
+.inner-scroll,
+.scroll-y {
+  background: none !important; /* Elimina el fondo negro */
+  box-shadow: none !important; /* Elimina cualquier sombra */
+}
+
+/* Sobrescribir estilos de #background-content */
+#background-content {
+  background: none #010c42; /* Elimina el fondo negro */
+  position: static !important; /* Ajusta la posición si es necesario */
+}
+
+ion-content {
+  --background: #010c42;
+}
+
+:root {
+  --ion-background-color: transparent;
+  --ion-background-color-rgb: 255, 255, 255;
+}
+
+.avatar-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.change-avatar-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.initial-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Separación entre los botones */
+}
+
+.cases-container {
+  width: 90%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+ion-card {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+ion-card-header {
+  background: #2e2e3a;
+  color: white;
+}
+
+ion-card-title {
+  font-size: 18px;
+}
+
+ion-card-content {
+  background: #1a1a2e;
+  color: white;
+}
+
+.comments {
+  margin-top: 10px;
+  padding: 10px;
+  background: #2e2e3a;
+  border-radius: 10px;
+}
+
+.comments h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #8e44ad;
+}
+
+.comments p {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #ecf0f1;
+}
+
+.description {
+  padding: 10px;
+  background: #2e2e3a;
+  border-radius: 10px;
+  color: #ecf0f1;
+  margin-top: 10px;
+}
+
+ion-item {
+  --background: #2e2e3a;
+  --color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+ion-input {
+  --placeholder-color: rgba(255, 255, 255, 0.7);
+}
+
+ion-button {
+  --background: #2ecc71;
+  --color: white;
+  margin-left: 10px;
+}
+
+.expanded-case {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fixed-header {
+  background: #010c42;
+  padding: 10px;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px; /* Set a specific height for the scrollable content */
+  padding-top: 20px; /* Add padding to ensure content starts below the fixed header */
+}

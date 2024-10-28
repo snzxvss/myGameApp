@@ -15,15 +15,47 @@
             </ion-card-title>
           </ion-card-header>
         </ion-card>
-        <div *ngIf="expandedCaseIndex === i">
-          <ion-button (click)="goBack()">
-            <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
-            Retroceder
-          </ion-button>
-          <p class="description" [innerHTML]="formatDescription(caso.DESCRIPCION)"></p>
+        <div *ngIf="expandedCaseIndex === i" class="expanded-case">
+          <div class="fixed-header">
+            <ion-button (click)="goBack()">
+              <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+              Retroceder
+            </ion-button>
+          </div>
+          <div class="scrollable-content">
+            <p class="description" [innerHTML]="formatDescription(caso.descripcion)"></p>
+            <div *ngIf="caso['A.PERSONALES']">
+              <h3>A.PERSONALES</h3>
+              <p [innerHTML]="formatClinicalData(caso['A.PERSONALES'])"></p>
+            </div>
+            <div *ngIf="caso['ANTECEDENTES_FAMILIARES']">
+              <h3>ANTECEDENTES FAMILIARES</h3>
+              <p [innerHTML]="formatClinicalData(caso['ANTECEDENTES_FAMILIARES'])"></p>
+            </div>
+            <div *ngIf="caso['DATOS_CLINICOS']">
+              <h3>DATOS CLINICOS</h3>
+              <p [innerHTML]="formatClinicalData(caso['DATOS_CLINICOS'])"></p>
+            </div>
+            <div *ngIf="caso['REFRACCION']">
+              <h3>REFRACCION</h3>
+              <p [innerHTML]="formatClinicalData(caso['REFRACCION'])"></p>
+            </div>
+            <div *ngIf="caso['AA']">
+              <h3>AA</h3>
+              <p [innerHTML]="formatClinicalData(caso['AA'])"></p>
+            </div>
+            <div *ngIf="caso['FLEXIBILIDAD_DE_ACC']">
+              <h3>FLEXIBILIDAD DE ACC</h3>
+              <p [innerHTML]="formatClinicalData(caso['FLEXIBILIDAD_DE_ACC'])"></p>
+            </div>
+            <div *ngIf="caso['HALLE']">
+              <h3>HALLE</h3>
+              <p [innerHTML]="formatClinicalData(caso['HALLE'])"></p>
+            </div>
+          </div>
           <div class="comments">
             <h3>Comentarios:</h3>
-            <p *ngFor="let comment of caso.COMENTARIO.split(';')">{{ comment }}</p>
+            <p *ngFor="let comment of caso.comentario.split(';')">{{ comment }}</p>
           </div>
           <ion-item>
             <ion-input [(ngModel)]="newComment" placeholder="Agregar comentario"></ion-input>
