@@ -1,15 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { WebSocketService } from '../services/websocket.service';
-import { Clipboard } from '@angular/cdk/clipboard';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
-interface Player {
-  avatarUrl: string;
-  nickname: string;
-  score: number;
-  isCreator?: boolean;
-}
 
 @Component({
   selector: 'app-create-room',
@@ -17,44 +8,23 @@ interface Player {
   styleUrls: ['./create-room.page.scss'],
 })
 export class CreateRoomPage implements OnInit {
-  players: Player[] = [];
+  roomId: string = '';
+  players: any[] = [];
   emptySlots: number[] = [];
-  roomId: string | null = null;
   isCreator: boolean = false;
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private wsService: WebSocketService,
-    private clipboard: Clipboard,
-    private snackBar: MatSnackBar
-  ) {}
+  constructor(private router: Router, private wsService: WebSocketService) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.roomId = params.get('roomId');
-      if (!this.roomId) {
-        this.roomId = localStorage.getItem('roomId');
-      }
-      if (this.roomId) {
-        this.loadPlayers();
-        this.updateEmptySlots();
-        this.listenForUpdates();
-        this.checkIfCreator();
-      } else {
-        console.error('No se encontró roomId');
-        this.router.navigate(['/home']);
-      }
-    });
-  }
-
-  loadPlayers() {
-    const players = JSON.parse(localStorage.getItem(`players_${this.roomId}`) || '[]');
-    this.players = players;
+    this.roomId = localStorage.getItem('roomId') || '';
+    this.players = JSON.parse(localStorage.getItem(`players_${this.roomId}`) || '[]');
+    this.isCreator = this.players.some(player => player.isCreator && player.nickname === localStorage.getItem('nickname'));
+    this.updateEmptySlots();
   }
 
   updateEmptySlots() {
-    this.emptySlots = Array(6 - this.players.length).fill(0);
+    const maxPlayers = 4;
+    this.emptySlots = Array(maxPlayers - this.players.length).fill(0);
   }
 
   startGame() {
@@ -65,7 +35,6 @@ export class CreateRoomPage implements OnInit {
 
     // Reiniciar el estado del juego
     localStorage.setItem('gameState', JSON.stringify({
-      preguntas: [],
       respuestas: [],
       currentQuestionIndex: 0,
       score: 0,
@@ -76,6 +45,9 @@ export class CreateRoomPage implements OnInit {
     // Reiniciar los puntajes de los jugadores
     this.players = this.players.map(player => ({ ...player, score: 0 }));
     localStorage.setItem(`players_${this.roomId}`, JSON.stringify(this.players));
+
+    // Limpiar cualquier estado anterior del juego
+    localStorage.removeItem('gameState');
 
     // Enviar mensaje al servidor WebSocket para iniciar el juego
     this.wsService.sendMessage({
@@ -88,68 +60,6 @@ export class CreateRoomPage implements OnInit {
   }
 
   invitePlayer() {
-    if (!this.roomId) {
-      console.error('No se encontró roomId');
-      return;
-    }
-
-    const baseUrl = window.location.origin; // Obtener la URL base (e.g., http://localhost:4200)
-    const inviteUrl = `${baseUrl}/join-room/${this.roomId}`;
-
-    if (navigator.share) {
-      navigator.share({
-        title: 'Invitación a la sala',
-        text: 'Únete a mi sala en Gorric PHONE',
-        url: inviteUrl,
-      }).then(() => {
-        console.log('Compartido exitosamente');
-      }).catch((error) => {
-        console.error('Error al compartir', error);
-      });
-    } else {
-      // Copiar el enlace al portapapeles
-      this.clipboard.copy(inviteUrl);
-
-      // Mostrar mensaje de confirmación
-      alert('URL de invitación copiada al portapapeles');
-    }
-
-    console.log('Invitar jugador');
-    console.log(`URL de invitación: ${inviteUrl}`);
-  }
-
-  addPlayer(player: { avatarUrl: string, nickname: string }) {
-    const existingPlayers = JSON.parse(localStorage.getItem(`players_${this.roomId}`) || '[]');
-    existingPlayers.push({ ...player, score: 0 });
-    localStorage.setItem(`players_${this.roomId}`, JSON.stringify(existingPlayers));
-    this.players = existingPlayers;
-    this.updateEmptySlots();
-    this.wsService.sendMessage({
-      type: 'join',
-      roomId: this.roomId,
-      player,
-    });
-  }
-
-  listenForUpdates() {
-    this.wsService.getMessages().subscribe((message) => {
-      if (message.roomId === this.roomId) {
-        if (message.type === 'update') {
-          this.players = message.players;
-          this.updateEmptySlots();
-        } else if (message.type === 'start') {
-          console.log('Iniciar partida');
-          this.router.navigate(['/play']);
-        }
-      }
-    });
-  }
-
-  checkIfCreator() {
-    const nickname = localStorage.getItem('nickname');
-    const player = this.players.find(p => p.nickname === nickname);
-    if (player && player.isCreator) {
-      this.isCreator = true;
-    }
+    // Implementación para invitar a un jugador
   }
 }

@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="app-container">
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="assets/logo.jpg" alt="Gorric PHONE" class="logo">
+    </div>
+    <div class="cases-container">
+      <ng-container *ngFor="let caso of casos; let i = index">
+        <ion-card (click)="toggleExpand(i)" *ngIf="expandedCaseIndex === null">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="document-text-outline" slot="start"></ion-icon>
+              <ion-icon name="clipboard-outline" slot="start"></ion-icon>
+              Caso {{ i + 1 }}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <div *ngIf="expandedCaseIndex === i">
+          <ion-button (click)="goBack()">
+            <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+            Retroceder
+          </ion-button>
+          <p class="description" [innerHTML]="formatDescription(caso.DESCRIPCION)"></p>
+          <div class="comments">
+            <h3>Comentarios:</h3>
+            <p *ngFor="let comment of caso.COMENTARIO.split(';')">{{ comment }}</p>
+          </div>
+          <ion-item>
+            <ion-input [(ngModel)]="newComment" placeholder="Agregar comentario"></ion-input>
+            <ion-button (click)="addComment(i)">Agregar</ion-button>
+          </ion-item>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ion-content>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import preguntasData from '../../preguntas.json';
+import preguntasData from '../../assets/preguntas.json';
 
 @Component({
   selector: 'app-play',
@@ -17,12 +17,25 @@ export class PlayPage implements OnInit {
   score: number = 0;
   showResults: boolean = false;
   resultIndex: number = 0;
+  roomId: string = '';
 
   constructor(private router: Router) {}
 
   ngOnInit() {
+    this.roomId = localStorage.getItem('roomId') || '';
+    this.limpiarEstadoJuego();
     this.iniciarQuiz();
-    this.iniciarTemporizador();
+  }
+
+  limpiarEstadoJuego() {
+    localStorage.removeItem('gameState');
+    this.respuestas = [];
+    this.currentQuestionIndex = 0;
+    this.score = 0;
+    this.minutes = 5;
+    this.seconds = 0;
+    this.showResults = false;
+    this.resultIndex = 0;
   }
 
   iniciarQuiz() {
@@ -33,19 +46,11 @@ export class PlayPage implements OnInit {
     this.score = gameState.score || 0;
     this.minutes = gameState.minutes || 5;
     this.seconds = gameState.seconds || 0;
+    this.iniciarTemporizador();
   }
 
   seleccionarPreguntasAleatorias(preguntas: any[], cantidad: number): any[] {
-    const preguntasAleatorias = [];
-    const indicesSeleccionados = new Set<number>();
-    while (preguntasAleatorias.length < cantidad) {
-      const indice = Math.floor(Math.random() * preguntas.length);
-      if (!indicesSeleccionados.has(indice)) {
-        indicesSeleccionados.add(indice);
-        preguntasAleatorias.push(preguntas[indice]);
-      }
-    }
-    return preguntasAleatorias;
+    return preguntas.sort(() => 0.5 - Math.random()).slice(0, cantidad);
   }
 
   iniciarTemporizador() {
@@ -82,25 +87,22 @@ export class PlayPage implements OnInit {
   }
 
   calcularPuntuacion() {
-    this.score = this.preguntas.reduce((acc, pregunta, index) => {
-      return acc + (pregunta.answer === this.respuestas[index] ? 1 : 0);
-    }, 0);
+    // Implementación para calcular la puntuación
   }
 
   guardarEstadoJuego() {
-    localStorage.setItem('gameState', JSON.stringify({
-      preguntas: this.preguntas,
+    const gameState = {
       respuestas: this.respuestas,
       currentQuestionIndex: this.currentQuestionIndex,
       score: this.score,
       minutes: this.minutes,
       seconds: this.seconds
-    }));
+    };
+    localStorage.setItem('gameState', JSON.stringify(gameState));
   }
 
   verPuntuacion() {
     this.showResults = true;
-    this.resultIndex = 0;
   }
 
   nextResult() {
@@ -116,9 +118,8 @@ export class PlayPage implements OnInit {
   }
 
   volverSala() {
-    // Limpiar el estado del juego
-    localStorage.removeItem('gameState');
-    this.router.navigate(['/create-room']);
+    this.limpiarEstadoJuego();
+    this.router.navigate([`/create-room/${this.roomId}`]);
   }
 
   salirHome() {

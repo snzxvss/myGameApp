@@ -29,8 +29,8 @@ const routes: Routes = [
   },
   {
     path: 'casos-clinicos',
-    loadChildren: () => import('./casos-clinicos/casos-clinicos.component').then(m => m.CasosClinicosComponent)
-  },
+    loadChildren: () => import('./casos-clinicos/casos-clinicos.module').then(m => m.CasosClinicosModule)
+  }
 ];
 
 @NgModule({
